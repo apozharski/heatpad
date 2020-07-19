@@ -1,0 +1,3 @@
+[submodule "boards"]
+	path = boards
+	url = https://github.com/apozharski/heat-control-pcb.git
