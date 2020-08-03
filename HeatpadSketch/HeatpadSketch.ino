@@ -1,25 +1,23 @@
 #include <Arduino.h>
 #include <Wire.h>
-#include <LCD.hpp>
+#include <RGBLCD.hpp>
+#include <types/BasicOnOff.hpp>
+#include <stdint.h>
 //#include <PID_v1.h>
 
 #define RED   2
 #define GREEN 3
 #define BLUE  5
 
-nhd::LCD<2,16> lcd;
+nhd::RGBLCD<2,16> lcd(RED, GREEN, BLUE);
 
-void setup() {
-  pinMode(RED, OUTPUT);
-  pinMode(GREEN, OUTPUT);
-  pinMode(BLUE, OUTPUT);
-  analogWrite(RED,255);
-  analogWrite(GREEN,0);
-  analogWrite(BLUE,0);
-  
+void setup() {  
+  Wire.begin();
+  Serial.begin(9600);
   lcd.init();
+  delay(1000);
 }
-
+int state = 0;
 void loop() {
   
 }
